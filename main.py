@@ -15,11 +15,13 @@ futuresLast = futures['result']['last']
 differ = percetageCalculator(futuresLast,5)
 
 while futuresLast > differ:
-    print('buy!')
     futures = requests.get('https://ftx.com/api/futures/BTC-PERP').json()
     futuresLast = futures['result']['last']
     print(str(futuresLast) +' > '+ str(differ))
     sleep(10)
+    
+print('buy!')
+
 # while futuresLast > futuresLast - futuresLast-futuresLast-%5
 
 # print(futuresLast)
