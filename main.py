@@ -19,7 +19,3 @@ while futuresLast > differ:
     sleep(10)
 
 print('buy!')
-
-# while futuresLast > futuresLast - futuresLast-futuresLast-%5
-
-# print(futuresLast)
