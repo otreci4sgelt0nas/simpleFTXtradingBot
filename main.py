@@ -1,3 +1,6 @@
+from contextlib import nullcontext
+from inspect import _void
+from time import sleep
 import pandas as pd
 import requests
 from percentage import percetageCalculator
@@ -6,11 +9,17 @@ from percentage import percetageCalculator
 # df = pd.DataFrame(markets['result'])
 # df.set_index('name', inplace = True)
 # print(df.T['BTC-PERP'])
-print(percetageCalculator(100,5))
 
 futures = requests.get('https://ftx.com/api/futures/BTC-PERP').json()
 futuresLast = futures['result']['last']
-print(percetageCalculator(futuresLast,5))
+differ = percetageCalculator(futuresLast,5)
+
+while futuresLast > differ:
+    print('buy!')
+    futures = requests.get('https://ftx.com/api/futures/BTC-PERP').json()
+    futuresLast = futures['result']['last']
+    print(str(futuresLast) +' > '+ str(differ))
+    sleep(10)
 # while futuresLast > futuresLast - futuresLast-futuresLast-%5
 
 # print(futuresLast)
