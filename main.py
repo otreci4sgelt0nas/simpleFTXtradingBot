@@ -1,5 +1,3 @@
-from contextlib import nullcontext
-from inspect import _void
 from time import sleep
 import pandas as pd
 import requests
@@ -19,7 +17,7 @@ while futuresLast > differ:
     futuresLast = futures['result']['last']
     print(str(futuresLast) +' > '+ str(differ))
     sleep(10)
-    
+
 print('buy!')
 
 # while futuresLast > futuresLast - futuresLast-futuresLast-%5
